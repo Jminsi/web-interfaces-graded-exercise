@@ -1,0 +1,1 @@
+API is available in stoplight.io: https://minsi-jamsa.stoplight.io/docs/webinterfacesgradedexercise/reference/WebMarketAPI.v1.yaml
