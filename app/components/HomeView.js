@@ -1,12 +1,66 @@
+/*
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
 
 const HomeView = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text style={{ fontSize: 50, fontWeight: '700' }}>Home View</Text>
+      <Button title="Login"/>
+      <Button title="Logout"/>
+      <Button title="Register"/>
+      <Button title="My postings"/>
     </View>
   )
 }
 
 export default HomeView
+
+*/
+/*
+import React from 'react'
+import { View, Text, Button } from 'react-native'
+
+
+const HomeView = (props) => {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text style={{ fontSize: 50, fontWeight: '700' }}>HomeView</Text>
+      <Button
+        title="Login"
+        onPress={() => props.navigation.navigate('View3')}
+      />
+    </View>
+  )
+}
+
+export default HomeView
+*/
+
+import React, { Component } from 'react'
+import { Text, View } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import MyView from './MyView'
+import RegisterView from './RegisterView'
+import LoginView from './LoginView'
+
+
+const Stack = createStackNavigator();
+
+export default class StackNavigation extends Component {
+  render() {
+    return (
+
+        <Stack.Navigator>
+          <Stack.Screen name="MyView" component={MyView} />
+          <Stack.Screen name="LoginView" component={LoginView} />
+          <Stack.Screen name="RegisterView" component={RegisterView} />
+        </Stack.Navigator>
+
+    )
+  }
+}
+//          
+//<Stack.Screen name="View2" component={View2} options={{ title: 'Title for View 2' }} />
+//<Stack.Screen name="View3" component={View3} />
