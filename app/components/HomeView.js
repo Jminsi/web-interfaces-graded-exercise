@@ -44,6 +44,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import MyView from './MyView'
 import RegisterView from './RegisterView'
 import LoginView from './LoginView'
+import AddPostingView from './AddPostingView'
 
 
 const Stack = createStackNavigator();
@@ -54,8 +55,9 @@ export default class StackNavigation extends Component {
 
         <Stack.Navigator>
           <Stack.Screen name="MyView" component={MyView} />
-          <Stack.Screen name="LoginView" component={LoginView} />
-          <Stack.Screen name="RegisterView" component={RegisterView} />
+          <Stack.Screen name="LoginView" component={LoginView} options={{ title: 'User login' }} />
+          <Stack.Screen name="RegisterView" component={RegisterView} options={{ title: 'New user registering' }} />
+          <Stack.Screen name="AddPostingView" component={AddPostingView} options={{ title: 'Add new posting' }} />
         </Stack.Navigator>
 
     )

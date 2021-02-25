@@ -62,7 +62,7 @@ const MyView = (props) => {
 
         <Button
           title="Add new posting"
-          onPress={() => props.navigation.navigate('LoginView')}
+          onPress={() => props.navigation.navigate('AddPostingView')}
         />
 
 
