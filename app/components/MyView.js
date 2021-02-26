@@ -17,13 +17,14 @@ const MyView = (props) => {
         flexDirection: 'row',
         //justifyContent: 'flex-end',
         justifyContent: 'space-around',
-        alignItems: 'flex-start' // CROSS AXIS
+        alignItems: 'flex-start', // CROSS AXIS
+        marginTop: 20
         
       }}>
         { props.username == "" ? (
-          <Text style={{ fontSize: 20, fontWeight: '700' }}>Hello visitor !</Text>
+          <Text style={{ fontSize: 20, fontWeight: '700'}}>Hello visitor !</Text>
         ) : (
-          <Text style={{ fontSize: 20, fontWeight: '700' }}>Hello {props.username} !</Text>
+          <Text style={{ fontSize: 20, fontWeight: '700'}}>Hello {props.username} !</Text>
         )}
         
         { props.username == "" && (
@@ -43,7 +44,7 @@ const MyView = (props) => {
         { props.username != "" && (
           <Button
             title="Logout"
-            onPress={() => props.navigation.navigate('LoginView')}
+            onPress={() => props.handleChange("")}
           />
         )}
 
@@ -62,21 +63,22 @@ const MyView = (props) => {
         
       }}>
 
+      { props.username == "" && (
+        <Text style={{ fontSize: 16, fontWeight: '700' }}>You can browse public postings without registering. Please login (or register at first) to be able add posting</Text>
+      )}
 
-      <Text style={{ fontSize: 16, fontWeight: '700' }}>You can browse public postings without registering. Please login (or register at first) to be able add posting</Text>
-
-        
-        
+      { props.username != "" && (
         <Button
           title="Show my postings"
           onPress={() => props.navigation.navigate('LoginView')}
         />
-
+      )}
+            { props.username != "" && (
         <Button
           title="Add new posting"
           onPress={() => props.navigation.navigate('AddPostingView')}
         />
-
+            )}
 
       </View>
     </View>

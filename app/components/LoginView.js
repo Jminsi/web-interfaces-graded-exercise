@@ -6,6 +6,13 @@ const LoginView = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+  function loginClick() {
+    props.handleChange("zap")
+    props.navigation.navigate('MyView')
+  }
+
+
   return (
     <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center'}}>
 
@@ -26,7 +33,7 @@ const LoginView = (props) => {
 
       <Button
           title="Login"
-          onPress={() => props.navigation.navigate('MyView')}
+          onPress={() => loginClick() }
         />
 
     </View>
