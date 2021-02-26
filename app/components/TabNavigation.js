@@ -14,7 +14,7 @@ export default class TabNavigation extends Component {
     super(props);
 
     this.state = {
-      name: "caca",
+      name: "dummy",
       calculatorA: 0,
       calculatorB: 0,
       isNameSaved: false
@@ -36,7 +36,7 @@ export default class TabNavigation extends Component {
           ///>
           >
             { props => <HomeView
-                          {...props}
+                          {...this.props}
                           name={ this.state.name }
                           onNameChange={ this.onNameChange }
                           onSaveName={ this.onSaveName }

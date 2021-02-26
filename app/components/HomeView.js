@@ -37,7 +37,7 @@ const HomeView = (props) => {
 export default HomeView
 */
 
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import { Text, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
@@ -49,20 +49,43 @@ import AddPostingView from './AddPostingView'
 
 const Stack = createStackNavigator();
 
-export default class StackNavigation extends Component {
-  render() {
-    return (
+//export default class StackNavigation extends Component {
+//  render() {
+const HomeView = (props) => {
+  const [username, setUsername] = useState("");
+
+
+  function handleChange(newValue) {
+    setUsername(newValue);
+  }
+
+  return (
+/*
+<View>
+    <Text>{ props.name }</Text>
+  </View>
+          <Stack.Screen name="MyView" component={MyView} {...props} name="foo"/>
+          <Stack.Screen name="LoginView" component={LoginView} options={{ title: 'User login' }} />
+          */
 
         <Stack.Navigator>
-          <Stack.Screen name="MyView" component={MyView} />
-          <Stack.Screen name="LoginView" component={LoginView} options={{ title: 'User login' }} />
+
+          <Stack.Screen name="MyView">
+            {props => <MyView {...props} username={username} handleChange={handleChange} />}
+          </Stack.Screen>
+          <Stack.Screen name="LoginView">
+            {props => <LoginView {...props} handleChange={handleChange} />}
+          </Stack.Screen>
           <Stack.Screen name="RegisterView" component={RegisterView} options={{ title: 'New user registering' }} />
           <Stack.Screen name="AddPostingView" component={AddPostingView} options={{ title: 'Add new posting' }} />
         </Stack.Navigator>
 
     )
-  }
+  //}
 }
+
+export default HomeView
+
 //          
 //<Stack.Screen name="View2" component={View2} options={{ title: 'Title for View 2' }} />
 //<Stack.Screen name="View3" component={View3} />

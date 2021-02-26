@@ -5,7 +5,7 @@ const RegisterView = (props) => {
   return (
     <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center'}}>
 
-      <Text style={{ fontSize: 16, fontWeight: '700', marginTop: 40 }}>Email:</Text>
+      <Text style={{ fontSize: 16, fontWeight: '700', marginTop: 40 }}>Email (login):</Text>
       <TextInput style={{width: '90%', height: 40, borderColor: 'black', borderWidth: 1, marginBottom: 40, padding: 5}}
         value="your@email-address.com">
       </TextInput>
@@ -13,6 +13,11 @@ const RegisterView = (props) => {
       <Text style={{ fontSize: 16, fontWeight: '700' }}>Password:</Text>
       <TextInput style={{width: '90%', height: 40, borderColor: 'black', borderWidth: 1, marginBottom: 40, padding: 5}}
         value="your-password">
+      </TextInput>
+
+      <Text style={{ fontSize: 16, fontWeight: '700' }}>Visible name/nick</Text>
+      <TextInput style={{width: '90%', height: 40, borderColor: 'black', borderWidth: 1, marginBottom: 40, padding: 5}}
+        value="Your name or nickname">
       </TextInput>
 
       <Text style={{ fontSize: 16, fontWeight: '700' }}>Phone number:</Text>

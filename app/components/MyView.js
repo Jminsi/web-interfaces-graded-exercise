@@ -4,8 +4,6 @@ import { View, Text, Button } from 'react-native'
 const MyView = (props) => {
   return (
 
-
-
     <View style={{
       //backgroundColor: 'yellow', 
       flex: 1, justifyContent: 'flex-start', alignItems: 'stretch'}
@@ -22,19 +20,33 @@ const MyView = (props) => {
         alignItems: 'flex-start' // CROSS AXIS
         
       }}>
-      <Text style={{ fontSize: 20, fontWeight: '700' }}>Hello visitor</Text>
-        <Button
-          title="Register"
-          onPress={() => props.navigation.navigate('RegisterView')}
-        />
-        <Button
-          title="Login"
-          onPress={() => props.navigation.navigate('LoginView')}
-        />
-        <Button
-          title="Logout"
-          onPress={() => props.navigation.navigate('LoginView')}
-        />
+        { props.username == "" ? (
+          <Text style={{ fontSize: 20, fontWeight: '700' }}>Hello visitor !</Text>
+        ) : (
+          <Text style={{ fontSize: 20, fontWeight: '700' }}>Hello {props.username} !</Text>
+        )}
+        
+        { props.username == "" && (
+          <Button
+            title="Register"
+            onPress={() => props.navigation.navigate('RegisterView')}
+          /> 
+        )}
+
+        { props.username == "" && (
+          <Button
+            title="Login"
+            onPress={() => props.navigation.navigate('LoginView')}
+          />
+        )}
+
+        { props.username != "" && (
+          <Button
+            title="Logout"
+            onPress={() => props.navigation.navigate('LoginView')}
+          />
+        )}
+
       </View>
 
 
@@ -51,7 +63,7 @@ const MyView = (props) => {
       }}>
 
 
-      <Text style={{ fontSize: 16, fontWeight: '700' }}>Please login (or register at first) to be able add posting</Text>
+      <Text style={{ fontSize: 16, fontWeight: '700' }}>You can browse public postings without registering. Please login (or register at first) to be able add posting</Text>
 
         
         
