@@ -70,7 +70,7 @@ const MyView = (props) => {
       { props.username != "" && (
         <Button
           title="Show my postings"
-          onPress={() => props.navigation.navigate('LoginView')}
+          onPress={() => props.navigation.navigate('Postings')}
         />
       )}
             { props.username != "" && (
