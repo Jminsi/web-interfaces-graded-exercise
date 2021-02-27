@@ -54,10 +54,12 @@ const Stack = createStackNavigator();
 const HomeView = (props) => {
   const [username, setUsername] = useState("");
 
-
-  function handleChange(newValue) {
+/*
+  function setUsername(newValue) {
     setUsername(newValue);
   }
+  */
+
 
   return (
 /*
@@ -71,10 +73,10 @@ const HomeView = (props) => {
         <Stack.Navigator>
 
           <Stack.Screen name="MyView">
-            {props => <MyView {...props} username={username} handleChange={handleChange} />}
+            {props => <MyView {...props} username={username} setUsername={setUsername} />}
           </Stack.Screen>
           <Stack.Screen name="LoginView">
-            {props => <LoginView {...props} handleChange={handleChange} />}
+            {props => <LoginView {...props} setUsername={setUsername} />}
           </Stack.Screen>
           <Stack.Screen name="RegisterView" component={RegisterView} options={{ title: 'New user registering' }} />
           <Stack.Screen name="AddPostingView" component={AddPostingView} options={{ title: 'Add new posting' }} />

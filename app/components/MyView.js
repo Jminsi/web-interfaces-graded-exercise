@@ -44,7 +44,7 @@ const MyView = (props) => {
         { props.username != "" && (
           <Button
             title="Logout"
-            onPress={() => props.handleChange("")}
+            onPress={() => props.setUsername("")}
           />
         )}
 
@@ -64,7 +64,7 @@ const MyView = (props) => {
       }}>
 
       { props.username == "" && (
-        <Text style={{ fontSize: 16, fontWeight: '700' }}>You can browse public postings without registering. Please login (or register at first) to be able add posting</Text>
+        <Text style={{ fontSize: 16, fontWeight: '700' }}>Welcome to WebMarket. You can browse public postings without registering. Please login (or register at first) to be able add posting</Text>
       )}
 
       { props.username != "" && (
