@@ -8,7 +8,7 @@ const PostingsView = (props) => {
     {
       id: 1,
       title: "Old Toyota Corolla1",
-      description: "Long description here",
+      description: "Selling my Toyota Corolla Le, with only 90k original miles and Clean Title, never been any accidents, garage keeping.",
       category: "cars",
       location: "Oulu",
       images: "no",
@@ -21,7 +21,7 @@ const PostingsView = (props) => {
     {
       id: 2,
       title: "Old Toyota Corolla2",
-      description: "Long description here",
+      description: "Selling my Toyota Corolla Le, with only 90k original miles and Clean Title, never been any accidents, garage keeping.",
       category: "cars",
       location: "Oulu",
       images: "no",
@@ -47,7 +47,7 @@ const PostingsView = (props) => {
     {
       id: 4,
       title: "Old Toyota Corolla4",
-      description: "Long description here",
+      description: "Selling my Toyota Corolla Le, with only 90k original miles and Clean Title, never been any accidents, garage keeping.",
       category: "cars",
       location: "Oulu",
       images: "no",
@@ -60,7 +60,7 @@ const PostingsView = (props) => {
     {
       id: 5,
       title: "Old Toyota Corolla5",
-      description: "Long description here",
+      description: "Selling my Toyota Corolla Le, with only 90k original miles and Clean Title, never been any accidents, garage keeping.",
       category: "cars",
       location: "Oulu",
       images: "no",
@@ -73,7 +73,7 @@ const PostingsView = (props) => {
     {
       id: 6,
       title: "Old Toyota Corolla6",
-      description: "Long description here",
+      description: "Selling my Toyota Corolla Le, with only 90k original miles and Clean Title, never been any accidents, garage keeping.",
       category: "cars",
       location: "Oulu",
       images: "no",
@@ -89,7 +89,7 @@ const PostingsView = (props) => {
 
 
   return (
-      <View style={{ flex: 1}}>
+      <View style={{ flex: 1, backgroundColor: '#ccd5ae'}}>
       <ScrollView persistentScrollbar={true}    contentContainerStyle={{alignItems: 'center' }}>
         <Text style={{ fontSize: 20, fontWeight: '700' }}>Postings</Text>
         { postings.map(p => <Posting {...p} key={p.id}></Posting>) }

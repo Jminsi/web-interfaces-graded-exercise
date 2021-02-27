@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, Button } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Posting = (props) => {
@@ -14,7 +14,7 @@ const Posting = (props) => {
       
       <Text style={styles.description}>{props.description}</Text>
       
-      <Text style={styles.infotitle}>Price (eur):
+      <Text style={styles.infotitle}>Price (EUR):
         <Text style={styles.infotext}> {props.price}</Text>
       </Text>
       
@@ -37,6 +37,14 @@ const Posting = (props) => {
       <Text style={styles.infotitle}>Contact info:
         <Text style={styles.infotext}> {props.contact}</Text>
       </Text>
+
+
+    <View style={{ marginTop: 10,  alignSelf: 'center', flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', width: '90%'}}>
+      <Button title="Delete"/>
+      <Button title="Edit"/>
+    </View>
+
+
     </View>
   )
 }
@@ -50,7 +58,10 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderWidth: 1,
     width: '90%',
-    padding: 5
+    padding: 5,
+    borderTopLeftRadius: 15,
+    borderBottomRightRadius: 15,
+    backgroundColor: 'white'
 
   },
   title: {
