@@ -3,8 +3,6 @@ const has = require('has-value');
 const router = express.Router();
 
 
-
-
 function validateJSONHeaders(req, res, next)
 {
     console.log('reqf=' + req.get('Content-Type'));
@@ -122,27 +120,61 @@ router.post('/registerr', (req, res) => {
 
 
 
-router.post('/register',
-    /*[
-      validateJSONHeaders,
-      validateNewUser
-    ],*/
-    (req, res) => {
-        const newUser = {
-            id: global.users.length + 1,
-            email: req.body.email,
-            password: req.body.password,
-            username: req.body.username,
-            contact: req.body.contact
-        }
-        global.users.push(newUser);
-        res.status(200);
-        res.end()
+router.post('/register', (req, res) => {
+    const newUser = {
+        id: global.users.length + 1,
+        email: req.body.email,
+        password: req.body.password,
+        username: req.body.username,
+        contact: req.body.contact
+    }
+    global.users.push(newUser);
+    res.status(200);
+    res.end()
 });
 
-router.delete('/:id', (req, res) => {
-    dogData.dogs = dogData.dogs.filter(dog => dog.id != req.params.id);
-    res.sendStatus(200);
-})
+
+router.post('/login', (req, res) => {
+    /*
+    const newUser = {
+        id: global.users.length + 1,
+        email: req.body.email,
+        password: req.body.password,
+        username: req.body.username,
+        contact: req.body.contact
+    }
+    */
+    //global.users.push(newUser);
+    //res.status(200);
+    //res.end()
+
+    userData = global.users.find(u => {
+        if (u.email == req.body.email) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    if(userData === undefined) {
+        res.sendStatus(401)
+    } else {
+        if(req.body.password == userData.password    ) {
+            res.json(userData);
+        } else {
+            res.sendStatus(401)
+        }
+    }
+
+/*
+    if (req.body.email == "zap") {
+        res.status(200);
+        res.end()
+    } else {
+        res.status(401);
+        res.end()
+    }
+    */
+});
+
 
 module.exports = router;

@@ -4,23 +4,8 @@ import { View, Text, Button } from 'react-native'
 const MyView = (props) => {
   return (
 
-    <View style={{
-      //backgroundColor: 'yellow', 
-      flex: 1, justifyContent: 'flex-start', alignItems: 'stretch'}
-      }>
-
-
-      <View style={{
-        //backgroundColor: 'red',
-        flex: 1,
-        //paddingTop: 5,
-        flexDirection: 'row',
-        //justifyContent: 'flex-end',
-        justifyContent: 'space-around',
-        alignItems: 'flex-start', // CROSS AXIS
-        marginTop: 20
-        
-      }}>
+    <View style={{flex: 1, justifyContent: 'flex-start', alignItems: 'stretch', backgroundColor: '#ccd5ae'}}>
+      <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'flex-start', marginTop: 20}}>
         { props.username == "" ? (
           <Text style={{ fontSize: 20, fontWeight: '700'}}>Hello visitor !</Text>
         ) : (
@@ -47,24 +32,18 @@ const MyView = (props) => {
             onPress={() => props.setUsername("")}
           />
         )}
-
       </View>
 
 
       <View style={{
-        //backgroundColor: 'blue',
         flex: 9,
-        //paddingTop: 0,
-        //padding: '5px',
         flexDirection: 'column',
         justifyContent: 'space-evenly',
-        //justifyContent: 'space-around',
         alignItems: 'center'
-        
       }}>
 
       { props.username == "" && (
-        <Text style={{ fontSize: 16, fontWeight: '700' }}>Welcome to WebMarket. You can browse public postings without registering. Please login (or register at first) to be able add posting</Text>
+        <Text style={{ margin: 20, fontSize: 16, fontWeight: '700' }}>Welcome to the WebMarket! You can browse public postings without registering. Please login (or register at first) to be able add new postings</Text>
       )}
 
       { props.username != "" && (
@@ -86,9 +65,3 @@ const MyView = (props) => {
 }
 
 export default MyView
-/*
-<Button
-title="Login"
-onPress={() => props.navigation.goBack()}
-/>
-*/

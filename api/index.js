@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 4000;
 
+const usersComponent = require('./components/users');
 const postingsComponent = require('./components/postings');
 //const imageUpload = require('./components/imageUpload');
 const bodyParser = require('body-parser');
@@ -206,6 +207,7 @@ app.route('/world')
 
 /* demonstrate route module/component usage - the dogComponent content is defined in separate file */
 app.use('/postings', postingsComponent);
+app.use('/users', usersComponent);
 //app.use('/apiKey', apiKeyDemo);
 //app.use('/fileUpload', imageUpload);
 //app.use('/jsonSchemaValidationExample', jsonSchemaValidationExample);
