@@ -4,12 +4,8 @@ const port = 4000;
 
 const usersComponent = require('./components/users');
 const postingsComponent = require('./components/postings');
-//const imageUpload = require('./components/imageUpload');
 const bodyParser = require('body-parser');
-//const apiKeyDemo = require('./components/apiKeyDemo');
 const cors = require('cors');
-//const jsonSchemaValidationExample = require('./components/jsonSchemaValidationExample');
-
 
 
 //   Simulates database for users
@@ -19,14 +15,14 @@ global.users = [
       email: "demo",
       password: "demo",
       username: "Demo One",
-      contact: "Phone: 555-123123",
+      contact: "Phone: 555-123123, only evenings",
     },
     {
       id: 2,
       email: "demo2",
       password: "demo2",
       username: "Demo Two",
-      contact: "Phone: 123-555 555",
+      contact: "Phone: 123-555 555, call anytime",
     }
 ];
 
@@ -35,51 +31,65 @@ global.users = [
 global.postings = [
     {
       id: 1,
-      title: "Old Toyota Corolla1",
-      description: "Selling my Toyota Corolla Le, with only 90k original miles and Clean Title, never been any accidents, garage keeping.",
+      title: "Toyota Corolla 1.6i 1999",
+      description: "For sale very dependable Toyota Corolla that runs really good not issues at all mechanical excellent transportation body not perfect but no accidents good tires nice radio.",
       category: "cars",
       location: "Oulu",
       images: "no",
-      price: "123",
-      date: "27.02.2021 15:42",
-      delivery: "pickup",
+      price: "1500",
+      date: "10.12.2020 17:15",
+      delivery: "Pickup",
       seller_id: 1
-      //seller: "Jack",
-      //contact: "abc@zfsd.com / 050 123 123 123"
     },
     {
       id: 2,
-      title: "Old Toyota Corolla2",
-      description: "Selling my Toyota Corolla Le, with only 90k original miles and Clean Title, never been any accidents, garage keeping.",
-      category: "cars",
-      location: "Oulu",
+      title: "Apple MacBook Pro Late 2013",
+      description: "MacBook Pro, including charger, original package and incase Laptop sleeve. Excellent for a Student.",
+      category: "computers",
+      location: "Tampere",
       images: "no",
-      price: "123",
-      date: "27.02.2021 15:42",
-      delivery: "pickup",
+      price: "200",
+      date: "05.01.2021 10:20",
+      delivery: "Pickup or post package",
       seller_id: 2
-      //seller: "Jack",
-      //contact: "abc@zfsd.com / 050 123 123 123"
     },
     {
-        id: 7,
-        title: "Shoes",
-        description: "My old shoes",
+        id: 3,
+        title: "Honda CRV Ex 4wd 2009",
+        description: "Selling 2009 honda crv ex 4wd clean title excellent condition have 113k miles well maintained no oil leaks.",
+        category: "cars",
+        location: "Kokkola",
+        images: "no",
+        price: "6500",
+        date: "20.02.2021 16:00",
+        delivery: "Pickup",
+        seller_id: 1
+      },
+    {
+        id: 4,
+        title: "Leather Motorcycle Jacket",
+        description: "Good condition armored jacket by SHIFT. All leather with nylon gussets for stretch. Size Large.",
         category: "clothes",
         location: "Oulu",
         images: "no",
-        price: "123",
-        date: "27.02.2021 15:42",
-        delivery: "pickup",
+        price: "50",
+        date: "22.02.2021 22:00",
+        delivery: "Pickup or shipping by mail",
         seller_id: 2
-        //seller: "Jack",
-        //contact: "abc@zfsd.com / 050 123 123 123"
+    },
+    {
+        id: 5,
+        title: "3x Levi’s 511 Jeans",
+        description: "For sale are three pairs of Levi’s 511 Jeans in very good condition. ",
+        category: "clothes",
+        location: "Helsinki",
+        images: "no",
+        price: "100",
+        date: "28.02.2022 07:50",
+        delivery: "Only shipping",
+        seller_id: 2
     }
 ];
-
-
-
-
 
 
 
@@ -192,16 +202,5 @@ app.use((err, req, res, next) => {
 
 
 app.listen(port, () => {
-    console.log(`Example API listening on http://localhost:${port}\n`);
-    console.log('Available API endpoints');
-    console.log('  /hello [GET, POST, PUT, DELETE]');
-    console.log('  /hello/{param1}/world/{param2} [GET]');
-    console.log('  /world [GET, POST, PUT, DELETE]');
-    console.log('\n  /dogs [GET, POST]');
-    console.log('  /dogs/{dogId} [GET, DELETE]');
-    console.log('\n  /apikey/new/{username} [GET]');
-    console.log('  /apikey/protected} [GET]');
-    console.log('\n  /fileUpload [POST] multipart file upload');
-    console.log('\n  /jsonSchemaValidationExample [POST] testing JSON Schema Validation');
-    console.log('\n\n Use for example curl or Postman tools to send HTTP requests to the endpoints');
+    console.log(`API listening on http://localhost:${port}\n`);
 });

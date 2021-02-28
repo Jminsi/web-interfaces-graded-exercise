@@ -3,81 +3,6 @@ const has = require('has-value');
 const router = express.Router();
 
 
-function validateJSONHeaders(req, res, next)
-{
-    console.log('reqf=' + req.get('Content-Type'));
-    if(req.get('Content-Type') === 'application/json')
-    {
-        next();
-    }
-    else
-    {
-        const err = new Error('Bad Request - Missing Headers');
-        err.status = 400;
-        next(err);
-    }
-}
-
-
-
-
-//  Add posting
-router.get('/add/', (req, res) => { 
-    //console.log('\n  ADDDD zap=' + zap);
-    //zap = zap + 1
-    //postingsData = postingsData.pop();
-    //postings = postings.pop();
-    delete global.postings[0]; 
-    res.sendStatus(200);
-})
-
-
-//  Return all postings
-router.get('/', (req, res) => { 
-    //res.json(postingsData.postings)});
-    //console.log('\n  get zap=' + zap);
-    res.json(global.users)
-})
-
-//  Return all postings for searched category
-router.get('/category/:category', (req, res) => {
-    console.log('\n  category:' + req.params.category);
-    const resultPostings = postingsData.postings.filter(p => {
-            return p.category == req.params.category;
-          });
-    if(resultPostings === undefined)
-    {
-        res.sendStatus(404)
-    }
-    else
-    {
-        res.json(resultPostings);
-    }
-})
-
-
-
-//  Return information of a single dog
-router.get('/:dogId', (req, res) => {
-    const resultDog = dogData.dogs.find(d => {
-        if (d.id == req.params.dogId) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    });
-    if(resultDog === undefined)
-    {
-        res.sendStatus(404)
-    }
-    else
-    {
-        res.json(resultDog);
-    }
-})
-
-
 /* Middleware to validate new user creation */
 function validateNewUser(req, res, next)
 {
@@ -107,17 +32,6 @@ function validateNewUser(req, res, next)
     }
     next(); // no validation errors, so pass to the next
 }
-
-
-
-router.post('/registerr', (req, res) => {
-    console.log(req);
-    console.log(req.body);
-    console.log('reqffff=' + req.body);
-    res.status(200);
-})
-
-
 
 
 router.post('/register', (req, res) => {
@@ -164,16 +78,6 @@ router.post('/login', (req, res) => {
             res.sendStatus(401)
         }
     }
-
-/*
-    if (req.body.email == "zap") {
-        res.status(200);
-        res.end()
-    } else {
-        res.status(401);
-        res.end()
-    }
-    */
 });
 
 
