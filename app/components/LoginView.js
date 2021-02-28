@@ -19,11 +19,10 @@ const LoginView = (props) => {
           email: email,
           password: password
         },
-
       })
         .then(response => {
           //handle success
-          props.setUsername(response.data.username)
+          props.login(response.data.email, response.data.username)
           props.navigation.navigate('MyView')
           Alert.alert("User login succesful");
         })
@@ -37,7 +36,6 @@ const LoginView = (props) => {
         "Can't login",
         "Check that all fields are filled"
       );
-
     }
   }
 

@@ -136,7 +136,7 @@ let postingsData = {
 
 
 //  Add posting
-router.get('/add/', (req, res) => { 
+router.get('/addsss/', (req, res) => { 
     //console.log('\n  ADDDD zap=' + zap);
     //zap = zap + 1
     //postingsData = postingsData.pop();
@@ -144,6 +144,53 @@ router.get('/add/', (req, res) => {
     delete global.postings[0]; 
     res.sendStatus(200);
 })
+
+
+
+
+
+
+router.post('/add', (req, res) => {
+    console.log('\n  ADDDD ');
+    console.log(req.body)
+    d = new Date();
+
+    
+    userData = global.users.find(u => {
+        if (u.email == req.body.email) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    if(userData === undefined) {
+        res.sendStatus(401)
+    } else {
+        const newPosting = {
+            id: global.postings.length + 1,
+            category: req.body.category,
+            title: req.body.title,
+            description: req.body.description,
+            location: req.body.location,
+            price: req.body.price,
+            delivery: req.body.delivery,
+            images: "no",
+            date: d.toLocaleString(),
+            seller_id: userData.id
+        }
+        console.log("Addinbg new:");
+        console.log(newPosting);
+        global.postings.push(newPosting);
+        //res.sendStatus(200)
+        res.status(200);
+        res.end()
+    }
+});
+
+
+
+
+
 
 
 //  Return all postings

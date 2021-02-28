@@ -29,7 +29,7 @@ const MyView = (props) => {
         { props.username != "" && (
           <Button
             title="Logout"
-            onPress={() => props.setUsername("")}
+            onPress={() => props.logout()}
           />
         )}
       </View>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { View, Text, TextInput, Button, ScrollView, StyleSheet } from 'react-native'
+import { View, Text, TextInput, Button, ScrollView, StyleSheet, Alert } from 'react-native'
+import axios from 'axios';
+import constants from '../constants.json';
 
 
 const AddPostingView = (props) => {
@@ -7,9 +9,49 @@ const AddPostingView = (props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
-  //const [images, setPassword] = useState("");
   const [price, setPrice] = useState("");
   const [delivery, setDelivery] = useState("");
+
+
+  function addClick() {
+    if (category.trim() != "" &&
+        title.trim() != "" &&
+        description.trim() != "" &&
+        location.trim() != "" &&
+        price.trim() != "" &&
+        delivery.trim() != "") {
+
+      axios({
+        method: 'post',
+        url: constants['api-address'] + '/postings/add',
+        data: {
+          category: category,
+          title: title,
+          description: description,
+          location: location,
+          price: price,
+          delivery :delivery,
+          email: props.email
+        },
+      })
+        .then(response => {
+          //handle success
+          props.navigation.navigate('MyView')
+          Alert.alert("Posting added");
+        })
+        .catch(response => {
+          //handle error
+          console.log(response);
+          Alert.alert("Server rejected adding posting");
+        });
+    } else {
+      Alert.alert(
+        "Can't add posting",
+        "Check that all fields are filled"
+      );
+    }
+  }
+
 
   return (
     <View style={{ flex: 1, backgroundColor: '#ccd5ae'}}>
@@ -61,11 +103,10 @@ const AddPostingView = (props) => {
           onChangeText={ value => setDelivery(value)}
         />
 
-
-
         <Button style={{marginBottom: 40}}
             title="Add posting"
-            onPress={() => props.navigation.navigate('MyView')}
+            //onPress={() => props.navigation.navigate('MyView')}
+            onPress={() => addClick() }
           />
           <Text style={{ fontSize: 16, fontWeight: '700', marginBottom: 40 }}></Text>
 

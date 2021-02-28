@@ -18,15 +18,15 @@ global.users = [
       id: 1,
       email: "demo",
       password: "demo",
-      username: "Demo User",
-      contact: "GSM: 11 111 111",
+      username: "Demo One",
+      contact: "Phone: 555-123123",
     },
     {
       id: 2,
       email: "demo2",
       password: "demo2",
-      username: "Demo User 2",
-      contact: "GSM: 22 222 222",
+      username: "Demo Two",
+      contact: "Phone: 123-555 555",
     }
 ];
 
@@ -35,7 +35,7 @@ global.users = [
 global.postings = [
     {
       id: 1,
-      title: "Old Toyota Corolla11",
+      title: "Old Toyota Corolla1",
       description: "Selling my Toyota Corolla Le, with only 90k original miles and Clean Title, never been any accidents, garage keeping.",
       category: "cars",
       location: "Oulu",
@@ -43,8 +43,9 @@ global.postings = [
       price: "123",
       date: "27.02.2021 15:42",
       delivery: "pickup",
-      seller: "Jack",
-      contact: "abc@zfsd.com / 050 123 123 123"
+      seller_id: 1
+      //seller: "Jack",
+      //contact: "abc@zfsd.com / 050 123 123 123"
     },
     {
       id: 2,
@@ -56,74 +57,24 @@ global.postings = [
       price: "123",
       date: "27.02.2021 15:42",
       delivery: "pickup",
-      seller: "Jack",
-      contact: "abc@zfsd.com / 050 123 123 123"
+      seller_id: 2
+      //seller: "Jack",
+      //contact: "abc@zfsd.com / 050 123 123 123"
     },
     {
-      id: 3,
-      title: "Old Toyota Corolla3",
-      description: "Long description here",
-      category: "cars",
-      location: "Oulu",
-      images: "no",
-      price: "123",
-      date: "27.02.2021 15:42",
-      delivery: "pickup",
-      seller: "Jack",
-      contact: "abc@zfsd.com / 050 123 123 123"
-    },
-    {
-      id: 4,
-      title: "Old Toyota Corolla4",
-      description: "Selling my Toyota Corolla Le, with only 90k original miles and Clean Title, never been any accidents, garage keeping.",
-      category: "cars",
-      location: "Oulu",
-      images: "no",
-      price: "123",
-      date: "27.02.2021 15:42",
-      delivery: "pickup",
-      seller: "Jack",
-      contact: "abc@zfsd.com / 050 123 123 123"
-    },
-    {
-      id: 5,
-      title: "Old Toyota Corolla5",
-      description: "Selling my Toyota Corolla Le, with only 90k original miles and Clean Title, never been any accidents, garage keeping.",
-      category: "cars",
-      location: "Oulu",
-      images: "no",
-      price: "123",
-      date: "27.02.2021 15:42",
-      delivery: "pickup",
-      seller: "Jack",
-      contact: "abc@zfsd.com / 050 123 123 123"
-    },
-    {
-      id: 6,
-      title: "Old Toyota Corolla6",
-      description: "Selling my Toyota Corolla Le, with only 90k original miles and Clean Title, never been any accidents, garage keeping.",
-      category: "cars",
-      location: "Oulu",
-      images: "no",
-      price: "123",
-      date: "27.02.2021 15:42",
-      delivery: "pickup",
-      seller: "Jack",
-      contact: "abc@zfsd.com / 050 123 123 123"
- },
- {
-    id: 7,
-    title: "Shoes",
-    description: "My old shoes",
-    category: "clothes",
-    location: "Oulu",
-    images: "no",
-    price: "123",
-    date: "27.02.2021 15:42",
-    delivery: "pickup",
-    seller: "Jack",
-    contact: "abc@zfsd.com / 050 123 123 123"
-}
+        id: 7,
+        title: "Shoes",
+        description: "My old shoes",
+        category: "clothes",
+        location: "Oulu",
+        images: "no",
+        price: "123",
+        date: "27.02.2021 15:42",
+        delivery: "pickup",
+        seller_id: 2
+        //seller: "Jack",
+        //contact: "abc@zfsd.com / 050 123 123 123"
+    }
 ];
 
 
