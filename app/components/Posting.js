@@ -79,7 +79,7 @@ const Posting = (props) => {
         <Text style={styles.infotext}> {props.location}</Text>
       </Text>
 
-      <Text style={styles.infotitle}>Posted:
+      <Text style={styles.infotitle}>Posted/edited:
         <Text style={styles.infotext}> {props.date}</Text>
       </Text>
 
@@ -112,13 +112,13 @@ const Posting = (props) => {
           height: 80,
           width: '20%',
         }}></Image>
-
       </View>
+
       {props.myPosting == 1 && (
-      <View style={{ marginTop: 10,  alignSelf: 'center', flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', width: '90%'}}>
-      <Button title="Delete" onPress={() => deleteClick() } />
-      <Button title="Edit" onPress={() => editClick() } />
-    </View>
+        <View style={{ marginTop: 10,  alignSelf: 'center', flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', width: '90%'}}>
+          <Button title="Delete" onPress={() => deleteClick() } />
+          <Button title="Edit" onPress={() => editClick() } />
+        </View>
       )}
     </View>
   )

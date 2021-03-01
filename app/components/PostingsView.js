@@ -49,7 +49,7 @@ const PostingsView = (props) => {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', backgroundColor: '#ccd5ae' }}>
-      <Text style={{ fontSize: 20, fontWeight: '700', marginTop: 5 }}>Postings</Text>
+      <Text style={{ fontSize: 20, fontWeight: '700', marginTop: 5, marginBottom: 5 }}>Postings</Text>
       <Button
         title="Show all postings"
         onPress={() => getAllPostings()}

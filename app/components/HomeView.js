@@ -33,7 +33,6 @@ const HomeView = (props) => {
   }
 
 
-
   return (
     <Stack.Navigator>
 

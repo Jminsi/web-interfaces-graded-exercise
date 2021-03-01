@@ -57,10 +57,7 @@ const LoginView = (props) => {
         onChangeText={ value => setPassword(value)}
       />
 
-      <Button
-          title="Login"
-          onPress={() => loginClick() }
-        />
+      <Button title="Login" onPress={() => loginClick() } />
 
     </View>
   )
