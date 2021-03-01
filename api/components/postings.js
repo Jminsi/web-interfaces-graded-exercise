@@ -79,7 +79,23 @@ router.post('/delete', (req, res) => {
 
 //  Return all postings
 router.get('/', (req, res) => {
-    res.json(global.postings)
+    
+    allPostings = global.postings
+
+    // fill seller info 
+    for (var i = 0; i < allPostings.length; i++) {
+        var posting = allPostings[i];
+        for (var u = 0; u < global.users.length; u++) {
+            var user =  global.users[u];
+            if(posting.seller_id == user.id) {
+                posting.seller = user.username;
+                posting.contact = user.contact;
+            }
+        }
+    }
+
+    //res.json(global.postings)
+    res.json(allPostings)
 })
 
 
@@ -92,7 +108,21 @@ router.get('/category/:category', (req, res) => {
     if (resultPostings === undefined) {
         res.sendStatus(404)
     } else {
-        res.json(resultPostings);
+        allPostings = resultPostings
+
+        // fill seller info 
+        for (var i = 0; i < allPostings.length; i++) {
+            var posting = allPostings[i];
+            for (var u = 0; u < global.users.length; u++) {
+                var user =  global.users[u];
+                if(posting.seller_id == user.id) {
+                    posting.seller = user.username;
+                    posting.contact = user.contact;
+                }
+            }
+        }
+        //res.json(resultPostings);
+        res.json(allPostings);
     }
 });
 
@@ -106,7 +136,21 @@ router.get('/location/:location', (req, res) => {
     if (resultPostings === undefined) {
         res.sendStatus(404)
     } else {
-        res.json(resultPostings);
+        allPostings = resultPostings
+
+        // fill seller info 
+        for (var i = 0; i < allPostings.length; i++) {
+            var posting = allPostings[i];
+            for (var u = 0; u < global.users.length; u++) {
+                var user =  global.users[u];
+                if(posting.seller_id == user.id) {
+                    posting.seller = user.username;
+                    posting.contact = user.contact;
+                }
+            }
+        }
+        //res.json(resultPostings);
+        res.json(allPostings);
     }
 });
 
@@ -120,7 +164,21 @@ router.get('/date/:date', (req, res) => {
     if (resultPostings === undefined) {
         res.sendStatus(404)
     } else {
-        res.json(resultPostings);
+        allPostings = resultPostings
+
+        // fill seller info 
+        for (var i = 0; i < allPostings.length; i++) {
+            var posting = allPostings[i];
+            for (var u = 0; u < global.users.length; u++) {
+                var user =  global.users[u];
+                if(posting.seller_id == user.id) {
+                    posting.seller = user.username;
+                    posting.contact = user.contact;
+                }
+            }
+        }
+        //res.json(resultPostings);
+        res.json(allPostings);
     }
 });
 
@@ -134,7 +192,21 @@ router.get('/user/:id', (req, res) => {
     if (resultPostings === undefined) {
         res.sendStatus(404)
     } else {
-        res.json(resultPostings);
+        allPostings = resultPostings
+
+        // fill seller info 
+        for (var i = 0; i < allPostings.length; i++) {
+            var posting = allPostings[i];
+            for (var u = 0; u < global.users.length; u++) {
+                var user =  global.users[u];
+                if(posting.seller_id == user.id) {
+                    posting.seller = user.username;
+                    posting.contact = user.contact;
+                }
+            }
+        }
+        //res.json(resultPostings);
+        res.json(allPostings);
     }
 });
 

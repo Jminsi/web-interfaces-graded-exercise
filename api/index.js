@@ -15,14 +15,14 @@ global.users = [
       email: "demo",
       password: "demo",
       username: "DemoUser One",
-      contact: "Phone: 555-123123, only evenings",
+      contact: "Tel: 555-123123, only evenings",
     },
     {
       id: 2,
       email: "demo2",
       password: "demo2",
       username: "DemoUser Two",
-      contact: "Phone: 123-555 555, call anytime",
+      contact: "Tel:123-555 555, call anytime",
     }
 ];
 

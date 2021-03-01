@@ -19,8 +19,7 @@ const Posting = (props) => {
     })
       .then(response => {
         //handle success
-        //props.navigation.navigate('MyView')
-        //props.navigation.navigate('MyPostingsView')
+        props.reloadPostings()
         Alert.alert("Posting deleted");
       })
       .catch(response => {
@@ -49,9 +48,6 @@ const Posting = (props) => {
 
 
   function editClick() {
-    //props.nagivation.navigate('AddPostingView')
-
-
     props.nagivation.navigate('EditPostingView', {
       category: props.category,
       title: props.title,
@@ -61,10 +57,7 @@ const Posting = (props) => {
       delivery: props.delivery,
       posting_id: props.id
     });
-
    }
- 
-
 
 
   return (
@@ -131,14 +124,6 @@ const Posting = (props) => {
   )
 }
 
-/*
-      <View style={{ marginTop: 10,  alignSelf: 'center', flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', width: '90%'}}>
-        <Button title="Delete"/>
-        <Button title="Edit"/>
-      </View>
-
-
-*/
 
 const styles = StyleSheet.create({
   container: {

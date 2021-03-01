@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { useFocusEffect } from '@react-navigation/native';
+import { useIsFocused } from '@react-navigation/native';
 import { Button, ScrollView, View, Text, TextInput, StyleSheet } from 'react-native'
 import Posting from './Posting';
 import axios from 'axios';
@@ -9,6 +11,7 @@ const MyPostingsView = (props) => {
 
   const [postings, setPostings] = useState([]);
 
+  
   function getMyPostings() {
     axios({
       method: 'get',
@@ -25,18 +28,34 @@ const MyPostingsView = (props) => {
       });
   }
 
+  
+  const isFocused = useIsFocused();
+  /*
+  
+  if(isFocused) {
+    getMyPostings()
+  }
+  */
   //getMyPostings();
+  /*
+  useFocusEffect(() => {
+    //handleRegistration()
+    getMyPostings()
+  }, [])
+  */
 
   useEffect(() => {
     //handleRegistration()
     getMyPostings()
-  }, [])
+  }, [isFocused])
+
+
 
   return (
     <View style={{ flex: 1, alignItems: 'center', backgroundColor: '#ccd5ae' }}>
 
       <ScrollView style={{ marginTop: 10, marginBottom: 10 }} persistentScrollbar={true} contentContainerStyle={{ alignItems: 'center' }}>
-        {postings.map(p => <Posting {...p} key={p.id} myPosting={1} nagivation={props.navigation} ></Posting>)}
+        {postings.map(p => <Posting {...p} key={p.id} myPosting={1} nagivation={props.navigation} reloadPostings={getMyPostings} ></Posting>)}
       </ScrollView>
     </View>
   )

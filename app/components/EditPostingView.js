@@ -38,8 +38,8 @@ export default function EditPostingView({ route, navigation }) {
       })
         .then(response => {
           //handle success
-          navigation.navigate('MyPostingsView')
           Alert.alert("Posting edited");
+          navigation.navigate('MyPostingsView')
         })
         .catch(response => {
           //handle error
