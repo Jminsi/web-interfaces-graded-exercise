@@ -14,14 +14,14 @@ global.users = [
       id: 1,
       email: "demo",
       password: "demo",
-      username: "Demo One",
+      username: "DemoUser One",
       contact: "Phone: 555-123123, only evenings",
     },
     {
       id: 2,
       email: "demo2",
       password: "demo2",
-      username: "Demo Two",
+      username: "DemoUser Two",
       contact: "Phone: 123-555 555, call anytime",
     }
 ];
@@ -37,7 +37,7 @@ global.postings = [
       location: "Oulu",
       images: "no",
       price: "1500",
-      date: "10.12.2020 17:15",
+      date: "10/12/2020, 17:15:00",
       delivery: "Pickup",
       seller_id: 1
     },
@@ -49,7 +49,7 @@ global.postings = [
       location: "Tampere",
       images: "no",
       price: "200",
-      date: "05.01.2021 10:20",
+      date: "05/01/2021, 10:20:00",
       delivery: "Pickup or post package",
       seller_id: 2
     },
@@ -61,7 +61,7 @@ global.postings = [
         location: "Kokkola",
         images: "no",
         price: "6500",
-        date: "20.02.2021 16:00",
+        date: "20/02/2021, 16:00:00",
         delivery: "Pickup",
         seller_id: 1
       },
@@ -73,7 +73,7 @@ global.postings = [
         location: "Oulu",
         images: "no",
         price: "50",
-        date: "22.02.2021 22:00",
+        date: "22/02/2021, 22:00:00",
         delivery: "Pickup or shipping by mail",
         seller_id: 2
     },
@@ -85,12 +85,12 @@ global.postings = [
         location: "Helsinki",
         images: "no",
         price: "100",
-        date: "28.02.2022 07:50",
+        date: "28/02/2022, 07:50:00",
         delivery: "Only shipping",
         seller_id: 2
     }
 ];
-
+global.postings_nextFreeId = global.postings.length + 1;
 
 
 const customHeaderCheckerMiddleware = function(req, res, next) {

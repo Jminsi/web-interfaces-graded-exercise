@@ -3,17 +3,19 @@ import { View, Text, TextInput, Button, ScrollView, StyleSheet, Alert } from 're
 import axios from 'axios';
 import constants from '../constants.json';
 
+export default function EditPostingView({ route, navigation }) {
 
-const AddPostingView = (props) => {
-  const [category, setCategory] = useState("");
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [location, setLocation] = useState("");
-  const [price, setPrice] = useState("");
-  const [delivery, setDelivery] = useState("");
+//const EditPostingView = (props) => {
+  const [category, setCategory] = useState(route.params.category);
+  const [title, setTitle] = useState(route.params.title);
+  const [description, setDescription] = useState(route.params.description);
+  const [location, setLocation] = useState(route.params.location);
+  const [price, setPrice] = useState(route.params.price);
+  const [delivery, setDelivery] = useState(route.params.delivery);
 
 
-  function addClick() {
+
+  function saveClick() {
     if (category.trim() != "" &&
         title.trim() != "" &&
         description.trim() != "" &&
@@ -23,7 +25,7 @@ const AddPostingView = (props) => {
 
       axios({
         method: 'post',
-        url: constants['api-address'] + '/postings/add',
+        url: constants['api-address'] + '/postings/edit',
         data: {
           category: category,
           title: title,
@@ -31,22 +33,22 @@ const AddPostingView = (props) => {
           location: location,
           price: price,
           delivery :delivery,
-          seller_id: props.userId
+          posting_id: route.params.posting_id
         },
       })
         .then(response => {
           //handle success
-          props.navigation.navigate('MyView')
-          Alert.alert("Posting added");
+          navigation.navigate('MyPostingsView')
+          Alert.alert("Posting edited");
         })
         .catch(response => {
           //handle error
           console.log(response);
-          Alert.alert("Server rejected adding posting");
+          Alert.alert("Server rejected editing posting");
         });
     } else {
       Alert.alert(
-        "Can't add posting",
+        "Can't edit posting",
         "Check that all fields are filled"
       );
     }
@@ -57,7 +59,7 @@ const AddPostingView = (props) => {
     <View style={{ flex: 1, backgroundColor: '#ccd5ae'}}>
       <ScrollView persistentScrollbar={true}    contentContainerStyle={{alignItems: 'center' }}>
 
-      <Text style={{ fontSize: 16, fontWeight: '700', marginTop: 10 }}>Category:</Text>
+      <Text style={{ fontSize: 16, fontWeight: '700', marginTop: 10 }}>Category: {route.params.aaa}</Text>
         <TextInput style={styles.input}
           value={ category }
           placeholder="Item category, clothing, cars etc."
@@ -104,9 +106,9 @@ const AddPostingView = (props) => {
         />
 
         <Button style={{marginBottom: 40}}
-            title="Add posting"
+            title="Save changes"
             //onPress={() => props.navigation.navigate('MyView')}
-            onPress={() => addClick() }
+            onPress={() => saveClick() }
           />
           <Text style={{ fontSize: 16, fontWeight: '700', marginBottom: 40 }}></Text>
 
@@ -145,4 +147,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default AddPostingView
+//export default EditPostingView

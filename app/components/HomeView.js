@@ -6,13 +6,15 @@ import MyView from './MyView'
 import RegisterView from './RegisterView'
 import LoginView from './LoginView'
 import AddPostingView from './AddPostingView'
+import MyPostingsView from './MyPostingsView'
+import EditPostingView from './EditPostingView'
 
 
 const Stack = createStackNavigator();
 
 const HomeView = (props) => {
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [userId, setUserId] = useState("");
 
   /*
     function setUsername(newValue) {
@@ -21,13 +23,13 @@ const HomeView = (props) => {
     */
   function logout() {
     setUsername("");
-    setEmail("");
+    setUserId("");
     Alert.alert("User logout");
   }
 
-  function login(email, username) {
+  function login(userId, username) {
     setUsername(username);
-    setEmail(email);
+    setUserId(userId);
   }
 
 
@@ -40,17 +42,22 @@ const HomeView = (props) => {
       </Stack.Screen>
 
       <Stack.Screen name="LoginView" options={{ title: 'User login' }}>
-        {props => <LoginView {...props} setUsername={setUsername} login={login}/>}
+        {props => <LoginView {...props} login={login}/>}
       </Stack.Screen>
 
       <Stack.Screen name="RegisterView" component={RegisterView} options={{ title: 'New user registering' }} />
-
       
       <Stack.Screen name="AddPostingView" options={{ title: 'Add new posting' }}>
-        {props => <AddPostingView {...props} email={email} />}
+        {props => <AddPostingView {...props} userId={userId} />}
       </Stack.Screen>
 
+      <Stack.Screen name="MyPostingsView" options={{ title: 'My postings' }}>
+        {props => <MyPostingsView {...props} userId={userId} />}
+      </Stack.Screen>
 
+      <Stack.Screen name="EditPostingView" options={{ title: 'Edit posting' }}>
+        {props => <EditPostingView {...props} userId={userId} />}
+      </Stack.Screen>
 
     </Stack.Navigator>
 

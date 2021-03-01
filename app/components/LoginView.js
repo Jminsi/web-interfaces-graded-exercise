@@ -22,7 +22,7 @@ const LoginView = (props) => {
       })
         .then(response => {
           //handle success
-          props.login(response.data.email, response.data.username)
+          props.login(response.data.id, response.data.username)
           props.navigation.navigate('MyView')
           Alert.alert("User login succesful");
         })

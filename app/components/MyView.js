@@ -1,7 +1,9 @@
 import React from 'react'
 import { View, Text, Button } from 'react-native'
 
+
 const MyView = (props) => {
+  
   return (
 
     <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'stretch', backgroundColor: '#ccd5ae' }}>
@@ -13,24 +15,15 @@ const MyView = (props) => {
           )}
 
         {props.username == "" && (
-          <Button
-            title="Register"
-            onPress={() => props.navigation.navigate('RegisterView')}
-          />
+          <Button title="Register" onPress={() => props.navigation.navigate('RegisterView')} />
         )}
 
         {props.username == "" && (
-          <Button
-            title="Login"
-            onPress={() => props.navigation.navigate('LoginView')}
-          />
+          <Button title="Login" onPress={() => props.navigation.navigate('LoginView')} />
         )}
 
         {props.username != "" && (
-          <Button
-            title="Logout"
-            onPress={() => props.logout()}
-          />
+          <Button title="Logout" onPress={() => props.logout()} />
         )}
       </View>
 
@@ -46,21 +39,16 @@ const MyView = (props) => {
         )}
 
         {props.username != "" && (
-          <Button
-            title="Show my postings"
-            onPress={() => props.navigation.navigate('Postings')}
-          />
+          <Button title="Show my postings" onPress={() => props.navigation.navigate('MyPostingsView')} />
         )}
         {props.username != "" && (
-          <Button
-            title="Add new posting"
-            onPress={() => props.navigation.navigate('AddPostingView')}
-          />
+          <Button title="Add new posting" onPress={() => props.navigation.navigate('AddPostingView')} />
         )}
 
       </View>
     </View>
   )
 }
+
 
 export default MyView

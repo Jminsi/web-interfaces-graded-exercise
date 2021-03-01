@@ -1,10 +1,71 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, Button } from 'react-native';
+import { View, Text, StyleSheet, Image, Button, Alert } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import gallery from '../assets/gallery.png';
+import axios from 'axios';
+import constants from '../constants.json';
 
 
 const Posting = (props) => {
+
+
+  function deletePosting() {
+    axios({
+      method: 'post',
+      url: constants['api-address'] + '/postings/delete',
+      data: {
+        id: props.id
+      },
+    })
+      .then(response => {
+        //handle success
+        //props.navigation.navigate('MyView')
+        //props.navigation.navigate('MyPostingsView')
+        Alert.alert("Posting deleted");
+      })
+      .catch(response => {
+        //handle error
+        console.log(response);
+        Alert.alert("Server rejected deleting posting");
+      });
+  }
+
+  function deleteClick() {
+   Alert.alert(
+    'Confirmation needed',
+    'Do you really want to delete posting?',
+    [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel'
+      },
+      { text: 'OK', onPress: () => deletePosting() }
+    ],
+    { cancelable: false }
+  );
+  }
+
+
+
+  function editClick() {
+    //props.nagivation.navigate('AddPostingView')
+
+
+    props.nagivation.navigate('EditPostingView', {
+      category: props.category,
+      title: props.title,
+      description: props.description,
+      price: props.price,
+      location: props.location,
+      delivery: props.delivery,
+      posting_id: props.id
+    });
+
+   }
+ 
+
+
 
   return (
     <View style={styles.container}>
@@ -60,7 +121,12 @@ const Posting = (props) => {
         }}></Image>
 
       </View>
-
+      {props.myPosting == 1 && (
+      <View style={{ marginTop: 10,  alignSelf: 'center', flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', width: '90%'}}>
+      <Button title="Delete" onPress={() => deleteClick() } />
+      <Button title="Edit" onPress={() => editClick() } />
+    </View>
+      )}
     </View>
   )
 }

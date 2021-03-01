@@ -36,7 +36,7 @@ const RegisterView = (props) => {
         .catch(response => {
           //handle error
           console.log(response);
-          alert("Server rejected registration");
+          Alert.alert("Server rejected registration");
         });
     } else {
       Alert.alert(

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, ScrollView, View, Text, TextInput, StyleSheet } from 'react-native'
+import { Button, ScrollView, View, Text, TextInput, StyleSheet, Alert } from 'react-native'
 import Posting from './Posting';
 import axios from 'axios';
 import constants from '../constants.json';
@@ -23,7 +23,7 @@ const PostingsView = (props) => {
       .catch(response => {
         //handle error
         console.log(response);
-        alert("Failed to get postings!");
+        Alert.alert("Failed to get postings!");
       });
   }
 
@@ -41,7 +41,7 @@ const PostingsView = (props) => {
         .catch(response => {
           //handle error
           console.log(response);
-          alert("Failed to search postings!");
+          Alert.alert("Failed to search postings!");
         });
     }
   }

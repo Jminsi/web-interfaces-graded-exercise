@@ -34,6 +34,7 @@ function validateNewUser(req, res, next)
 }
 
 
+// Register new user
 router.post('/register', (req, res) => {
     const newUser = {
         id: global.users.length + 1,
@@ -48,20 +49,8 @@ router.post('/register', (req, res) => {
 });
 
 
+// Login user
 router.post('/login', (req, res) => {
-    /*
-    const newUser = {
-        id: global.users.length + 1,
-        email: req.body.email,
-        password: req.body.password,
-        username: req.body.username,
-        contact: req.body.contact
-    }
-    */
-    //global.users.push(newUser);
-    //res.status(200);
-    //res.end()
-
     userData = global.users.find(u => {
         if (u.email == req.body.email) {
             return true;

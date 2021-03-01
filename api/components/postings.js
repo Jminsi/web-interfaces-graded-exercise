@@ -5,46 +5,80 @@ const router = express.Router();
 
 // Add posting
 router.post('/add', (req, res) => {
-    //console.log('\n  ADDDD ');
+    console.log('\n  add posting ');
+    //console.log(req.body)
+
+    d = new Date();
+
+    const newPosting = {
+        //id: global.postings.length + 1,
+        id: global.postings_nextFreeId,
+        category: req.body.category,
+        title: req.body.title,
+        description: req.body.description,
+        location: req.body.location,
+        price: req.body.price,
+        delivery: req.body.delivery,
+        images: "no",
+        date: d.toLocaleString('en-GB'),
+        seller_id: req.body.seller_id
+    }
+    global.postings_nextFreeId = global.postings_nextFreeId + 1
+    global.postings.push(newPosting);
+    res.status(200);
+    res.end()
+});
+
+
+
+// Edit posting
+router.post('/edit', (req, res) => {
+    console.log('\n  edit posting_id:' + req.body.posting_id);
     //console.log(req.body)
     d = new Date();
 
-    userData = global.users.find(u => {
-        if (u.email == req.body.email) {
-            return true;
-        } else {
-            return false;
+    for (var i = 0; i < global.postings.length; i++) {
+        var posting = global.postings[i];
+        if (posting.id == req.body.posting_id) {
+            //index = i;
+            posting.category = req.body.category,
+                posting.title = req.body.title,
+                posting.description = req.body.description,
+                posting.location = req.body.location,
+                posting.price = req.body.price,
+                posting.delivery = req.body.delivery,
+                posting.images = "no",
+                posting.date = d.toLocaleString('en-GB')
         }
-    });
-    if (userData === undefined) {
-        res.sendStatus(401)
-    } else {
-        const newPosting = {
-            id: global.postings.length + 1,
-            category: req.body.category,
-            title: req.body.title,
-            description: req.body.description,
-            location: req.body.location,
-            price: req.body.price,
-            delivery: req.body.delivery,
-            images: "no",
-            date: d.toLocaleString(),
-            seller_id: userData.id
-        }
-        //console.log("Addinbg new:");
-        //console.log(newPosting);
-        global.postings.push(newPosting);
-        //res.sendStatus(200)
-        res.status(200);
-        res.end()
     }
+
+    res.status(200);
+    res.end()
+});
+
+
+// Delete posting
+router.post('/delete', (req, res) => {
+    console.log('\n  delete posting id:' + req.body.id);
+
+    index = -1
+    
+    // search index of posting id to delete
+    for (var i = 0; i < global.postings.length; i++) {
+        var posting = global.postings[i];
+        if (posting.id == req.body.id) {
+            index = i;
+        }
+    }
+
+    global.postings.splice(index, 1);
+    res.status(200);
+    res.end()
 });
 
 
 //  Return all postings
 router.get('/', (req, res) => {
-    //res.json(postingsData.postings)});
-    //console.log('\n  get zap=' + zap);
     res.json(global.postings)
 })
 
@@ -89,6 +123,21 @@ router.get('/date/:date', (req, res) => {
         res.json(resultPostings);
     }
 });
+
+
+//  Return all postings for specific user ID
+router.get('/user/:id', (req, res) => {
+    console.log('\n  postings for user id:' + req.params.id);
+    const resultPostings = global.postings.filter(p => {
+        return p.seller_id == req.params.id;
+    });
+    if (resultPostings === undefined) {
+        res.sendStatus(404)
+    } else {
+        res.json(resultPostings);
+    }
+});
+
 
 
 module.exports = router;

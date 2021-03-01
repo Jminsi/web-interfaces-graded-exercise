@@ -6,7 +6,9 @@ import HomeView from './HomeView'
 import PostingsView from './PostingsView'
 import { Ionicons } from 'react-native-vector-icons';
 
+
 const Tab = createBottomTabNavigator();
+
 
 export default class TabNavigation extends Component {
   constructor(props)
@@ -19,7 +21,6 @@ export default class TabNavigation extends Component {
       calculatorB: 0,
       isNameSaved: false
     }
-
   }
 
   render() {
@@ -43,9 +44,6 @@ export default class TabNavigation extends Component {
                           isNameSaved={ this.state.isNameSaved }
                         />}
           </Tab.Screen>
-
-
-
 
           <Tab.Screen 
             name="Postings" 
