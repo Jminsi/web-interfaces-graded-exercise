@@ -31,12 +31,12 @@ global.users = [
 global.postings = [
     {
       id: 1,
-      title: "Toyota Corolla 1.6i 1999",
-      description: "For sale very dependable Toyota Corolla that runs really good not issues at all mechanical excellent transportation body not perfect but no accidents good tires nice radio.",
-      category: "cars",
+      title: " New Name It body, Size 98 ",
+      description: "Brand new body, got it as gift did not use it at all, it can be use for aga 1 to 1.5 years old boy or girl ",
+      category: "clothes",
       location: "Oulu",
       images: "no",
-      price: "1500",
+      price: "8",
       date: "10/12/2020, 17:15:00",
       delivery: "Pickup",
       seller_id: 1
